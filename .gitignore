@@ -15,11 +15,10 @@ gate-simulator/node_modules/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea/
+.idea
 *.iws
 *.iml
 *.ipr
-*.xml
 out/
 
 ### NetBeans ###
