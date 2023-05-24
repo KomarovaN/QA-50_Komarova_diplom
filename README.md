@@ -15,7 +15,7 @@
 
     *docker-compose up -d*
 
-2. Dыполнить в терминале команду запумка тестируемого приложения с параметрами:
+2. Dыполнить в терминале команду запуска тестируемого приложения с параметрами:
 
     *java “-Dspring.datasource.url=jdbc:postgresql://localhost:5432/data” “-Dspring.datasource.username=app” “-Dspring.datasource.password=pass” -jar artifacts\aqa-shop.jar*
 
