@@ -16,7 +16,7 @@ public class DBHelper {
 
     @SneakyThrows
     private static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(System.getProperty("source"), System.getProperty("username"), System.getProperty("pass"));
+        return DriverManager.getConnection(System.getProperty("source"), System.getProperty("username"), System.getProperty("password"));
     }
     @SneakyThrows
     public static DataHelper.CardStatus getCardStatusPay() {

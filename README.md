@@ -21,7 +21,7 @@
 
 3. Открыть новый терминал и выполнить команды по сборке и запуску тестов и генератора отчетов:
 
-    *.\gradlew clean test "-Dsource=jdbc:postgresql://localhost:5432/data"*
+    *.\gradlew clean test "-Dsource=jdbc:postgresql://localhost:5432/data" “-Dspring.datasource.username=app” “-Dspring.datasource.password=pass”*
 
     *.\gradlew allureserve*
 
@@ -36,7 +36,7 @@
 
 6. Во втором терминале выполнить команды:
 
-    *.\gradlew clean test "-Dsource=jdbc:mysql://localhost:3306/app"*
+    *.\gradlew clean test "-Dsource=jdbc:mysql://localhost:3306/app" “-Dspring.datasource.username=app” “-Dspring.datasource.password=pass”*
 
     *.\gradlew allureserve*
 

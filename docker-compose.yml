@@ -20,6 +20,6 @@ services:
       - '3306:3306'
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
-      - MYSQL_DATABASE=app
+      - MYSQL_DATABASE=data
       - MYSQL_USER=app
       - MYSQL_PASSWORD=pass
