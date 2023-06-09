@@ -29,6 +29,14 @@ public class DataHelper {
                 generateCVC());
     }
 
+    public static CardInfo getCardInfoNotExist() {
+        return new CardInfo(
+                getNumberNotExist(),
+                generateExpireYear(),
+                generateExpireMonth(),
+                generateHolder("en"),
+                generateCVC());
+    }
     public static CardInfo getCardInfoInvalidNumber() {
         return new CardInfo(
                 generateInvalidNumber(),
@@ -135,9 +143,11 @@ public class DataHelper {
     public static String getNumberApproved() {
         return "4444 4444 4444 4441";
     }
-
     public static String getNumberDeclined() {
         return "4444 4444 4444 4442";
+    }
+    public static String getNumberNotExist() {
+        return "4444 4444 4444 4444";
     }
 
     public static String generateInvalidNumber() {

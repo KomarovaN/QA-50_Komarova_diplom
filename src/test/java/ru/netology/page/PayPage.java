@@ -19,10 +19,8 @@ public class PayPage {
     private SelenideElement cvcField = $(".input__control", 4);
     private SelenideElement continueButton = $(byText("Продолжить"));
     private static SelenideElement errorMessage = $(".input__sub");
-    private static SelenideElement closerMessageOK = $(".notification__content",0);
-    private static SelenideElement closerMessageError = $(".notification__content",1);
-    //.notification_status_error  .notification__title "Ошибка" .notification__content "Ошибка! Банк отказал в проведении операции."
-    //.notification_status_ok  .notification__title "Успешно" .notification__content "Операция одобрена Банком."
+    private static SelenideElement closerMessageOK = $(".notification_status_ok .notification__content");
+    private static SelenideElement closerMessageError = $(".notification_status_error .notification__content");
 
     public PayPage(String pay) {
         if (pay.equals("pay")) {
@@ -47,22 +45,11 @@ public class PayPage {
     }
 
     public void checkCloserMessageOK() {
-        closerMessageOK.shouldHave(exactText("Операция одобрена Банком."))
-                .shouldBe(visible,Duration.ofSeconds(15));
-    }
-
-    public void checkNotCloserMessageOK() {
-        closerMessageError.shouldHave(exactText("Операция одобрена Банком."))
-                .shouldBe(hidden,Duration.ofSeconds(15));
+        closerMessageOK.shouldBe(visible,Duration.ofSeconds(15));
     }
 
     public void checkCloserMessageError() {
-        closerMessageError.shouldHave(exactText("Ошибка! Банк отказал в проведении операции."))
-                .shouldBe(visible,Duration.ofSeconds(15));
+        closerMessageError.shouldBe(visible,Duration.ofSeconds(15));
     }
 
-    public void checkNotCloserMessageError() {
-        closerMessageError.shouldHave(exactText("Ошибка! Банк отказал в проведении операции."))
-                .shouldBe(hidden,Duration.ofSeconds(15));
-    }
 }

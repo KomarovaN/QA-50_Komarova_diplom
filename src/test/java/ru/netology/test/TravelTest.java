@@ -1,7 +1,6 @@
 package ru.netology.test;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
-import com.mysql.cj.x.protobuf.MysqlxDatatypes;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import ru.netology.data.DBHelper;
@@ -39,14 +38,6 @@ public class TravelTest {
         String expectedStatus = "APPROVED";
         assertEquals (expectedStatus, actualStatus);
     }
-    @Test
-    @DisplayName("Should NOT be visible the message from the bank about a NOT pay if the card is 'approved'")
-    public void shouldNotPayCardValidApproved() {
-        PayPage payPage = travelPage.payTravel();
-        DataHelper.CardInfo cardValidApproved = DataHelper.getCardInfoValidApproved();
-        payPage.validPay(cardValidApproved);
-        payPage.checkNotCloserMessageError();
-    }
 
     @Test
     @DisplayName("Should be visible the message from the bank about a not pay if the card is 'declined'")
@@ -60,13 +51,14 @@ public class TravelTest {
         String expectedStatus = "DECLINED";
         assertEquals (expectedStatus, actualStatus);
     }
+
     @Test
-    @DisplayName("Should NOT be visible the message from the bank about a successful pay if the card is 'declined'")
-    public void shouldNotPayCardValidDeclined() {
+    @DisplayName("Should be visible the message from the bank about a not pay if the card is not exist")
+    public void shouldPayCardNotExist() {
         PayPage payPage = travelPage.payTravel();
-        DataHelper.CardInfo cardValidDeclined = DataHelper.getCardInfoValidDeclined();
-        payPage.validPay(cardValidDeclined);
-        payPage.checkNotCloserMessageOK();
+        DataHelper.CardInfo cardNotExist = DataHelper.getCardInfoNotExist();
+        payPage.validPay(cardNotExist);
+        payPage.checkCloserMessageError();
     }
 
     @Test

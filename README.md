@@ -17,11 +17,11 @@
 
 2. Dыполнить в терминале команду запуска тестируемого приложения (SUT) с параметрами подключения к базе данных postgresql:
 
-    *java “-Dspring.datasource.url=jdbc:postgresql://localhost:5432/data” “-Dspring.datasource.username=app” “-Dspring.datasource.password=pass” -jar artifacts\aqa-shop.jar*
+    *java “-Dspring.datasource.url=jdbc:postgresql://localhost:5432/db” “-Dspring.datasource.username=app” “-Dspring.datasource.password=pass” -jar artifacts\aqa-shop.jar*
 
 3. Открыть новый терминал и выполнить команды по сборке и запуску тестов с параметрами подключения к базе данных postgresql и генератора отчетов:
 
-    *.\gradlew clean test "-Dsource=jdbc:postgresql://localhost:5432/data" “-Dspring.datasource.username=app” “-Dspring.datasource.password=pass”*
+    *.\gradlew clean test "-Dsource=jdbc:postgresql://localhost:5432/db" “-Dspring.datasource.username=app” “-Dspring.datasource.password=pass”*
 
     *.\gradlew allureserve*
 
@@ -32,11 +32,11 @@
 ### Порядок проверки с mysql
 1. В терминале выполнить команду запуска тестируемого приложения (SUT) с параметрами подключения к базе данных mysql:
 
-    *java "-Dspring.datasource.url=jdbc:mysql://localhost:3306/app" “-Dspring.datasource.username=app” “-Dspring.datasource.password=pass” -jar artifacts/aqa-shop.jar*
+    *java "-Dspring.datasource.url=jdbc:mysql://localhost:3306/db" “-Dspring.datasource.username=app” “-Dspring.datasource.password=pass” -jar artifacts/aqa-shop.jar*
 
 6. Во втором терминале выполнить команды по сборке и запуску тестов с параметрами подключения к базе данных mysql и генератора отчетов:
 
-    *.\gradlew clean test "-Dsource=jdbc:mysql://localhost:3306/app" “-Dspring.datasource.username=app” “-Dspring.datasource.password=pass”*
+    *.\gradlew clean test "-Dsource=jdbc:mysql://localhost:3306/db" “-Dspring.datasource.username=app” “-Dspring.datasource.password=pass”*
 
     *.\gradlew allureserve*
 

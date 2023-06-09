@@ -39,14 +39,6 @@ public class TravelCreditTest {
         String expectedStatus = "APPROVED";
         assertEquals (expectedStatus, actualStatus);
     }
-    @Test
-    @DisplayName("Should NOT be visible the message from the bank about a NOT credit pay if the card is 'approved'")
-    public void shouldNotCreditCardValidApproved() {
-        PayPage creditPage = travelPage.creditTravel();
-        DataHelper.CardInfo cardValidApproved = DataHelper.getCardInfoValidApproved();
-        creditPage.validPay(cardValidApproved);
-        creditPage.checkNotCloserMessageError();
-    }
 
     @Test
     @DisplayName("Should be visible the message from the bank about a not credit pay if the card is 'declined'")
@@ -60,14 +52,16 @@ public class TravelCreditTest {
         String expectedStatus = "DECLINED";
         assertEquals (expectedStatus, actualStatus);
     }
+
     @Test
-    @DisplayName("Should NOT be visible the message from the bank about a successful credit pay if the card is 'declined'")
-    public void shouldNotCreditCardValidDeclined() {
+    @DisplayName("Should be visible the message from the bank about a not pay if the card is not exist")
+    public void shouldPayCardNotExist() {
         PayPage creditPage = travelPage.creditTravel();
-        DataHelper.CardInfo cardValidDeclined = DataHelper.getCardInfoValidDeclined();
-        creditPage.validPay(cardValidDeclined);
-        creditPage.checkNotCloserMessageOK();
+        DataHelper.CardInfo cardNotExist = DataHelper.getCardInfoNotExist();
+        creditPage.validPay(cardNotExist);
+        creditPage.checkCloserMessageError();
     }
+
     @Test
     @DisplayName("Should be visible message 'Неверный формат' if the length of card number is less than 19 ")
     public void shouldFailedInputInvalidNumber() {

@@ -10,16 +10,15 @@ services:
     ports:
       - '5432:5432'
     environment:
-      POSTGRES_DB: data
-      POSTGRES_USER: app
-      POSTGRES_PASSWORD: pass
+      - POSTGRES_DB=db
+      - POSTGRES_USER=app
+      - POSTGRES_PASSWORD=pass
   mysql:
     image: mysql:8.0
-    restart: always
     ports:
       - '3306:3306'
     environment:
       - MYSQL_RANDOM_ROOT_PASSWORD=yes
-      - MYSQL_DATABASE=data
+      - MYSQL_DATABASE=db
       - MYSQL_USER=app
       - MYSQL_PASSWORD=pass
